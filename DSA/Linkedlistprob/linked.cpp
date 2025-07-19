@@ -11,7 +11,7 @@ class Node{
            Node(int val){
 
                 data=data;
-                next=nullptr;
+                Next=nullptr;
            }
 };
 int main(){
