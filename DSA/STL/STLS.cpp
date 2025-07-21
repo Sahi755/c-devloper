@@ -211,10 +211,9 @@ class Vector{
 
                sort(vs.begin(),vs.end());
 
-               vs.pop_back();
-
-               cout<<vs.back()<<endl;
+               cout<<vs.back()-1<<endl;
         }
+
         
 };
 int main(){
