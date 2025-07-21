@@ -126,8 +126,96 @@ class Vector{
     static void maxof(vector<int>vs){
 
          
+         auto it=max_element(vs.begin(),vs.end());
+         auto it2=min_element(vs.begin(),vs.end());
+
+         cout<<"MAX:"<<*it<<endl;
+         cout<<"min:"<<*it2<<endl;
+
     }
 
+    static void duplicates(vector<int>vs){
+
+          auto it=unique(vs.begin(),vs.end());
+
+          vs.erase(it,vs.end());
+
+          for(auto i:vs){
+
+              cout<<i<<" ";
+          }
+    }
+
+    static void finds(vector<int>vs){
+
+          int index=0;
+
+          int element;
+
+          cout<<"Enter the element:";
+          cin>>element;
+
+          auto it=find(vs.begin(),vs.end(),element);
+
+        if(it!=vs.end()){
+
+            cout<<*it<<endl;
+        }else{
+
+            cout<<"Not found!";
+        }
+    }
+
+    static void avge(vector<int>vs){
+
+          int sum=0;
+
+           for(auto i:vs){
+
+               sum+=i;
+           }
+
+         double avg=sum/vs.size();
+
+         cout<<"Sum:"<<sum<<endl;
+         cout<<"average:"<<avg<<endl;
+
+      }
+
+      static void removeEven(vector<int>vs){
+
+          auto it=remove_if(vs.begin(),vs.end(),[](int x){
+
+               return x%2==0;
+          });
+
+          vs.erase(it,vs.end());
+
+           cout<<"remove vector:";
+           printvector(vs);
+
+        }
+
+        static void RotateVector(vector<int>vs){
+
+              int mid=0+vs.size()/2;
+
+              rotate(vs.begin(),vs.begin()+mid,vs.end());
+
+              cout<<"after rotate:";
+              printvector(vs);
+
+        }
+
+        static void secondlargest(vector<int>vs){
+
+               sort(vs.begin(),vs.end());
+
+               vs.pop_back();
+
+               cout<<vs.back()<<endl;
+        }
+        
 };
 int main(){
     
@@ -147,7 +235,9 @@ int main(){
                vs.push_back(k);
         
           }
-          Vector::frequency(vs);
+
+          Vector::secondlargest(vs);
           vs.clear();
+
     }
 }
