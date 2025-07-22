@@ -1,6 +1,7 @@
 //g++ --std=c++14 rating800to1000.cpp -o rating800to1000 && rating800to1000
 #include<iostream>
 #include<string>
+#include<set>
 #include <sstream>
 using namespace std;
 class BasicIo{
@@ -247,15 +248,112 @@ class BasicIo{
            cout<<s<<endl;
       }
 
+      static void VOWELS(){
+
+           string s;
+
+           getline(cin,s);
+
+           set<char>chs;
+
+           for(int i=0;i<s.length();i++){
+
+                 if(s[i]=='a'||s[i]=='u' || s[i]=='e'|| s[i]=='i'||s[i]=='o' || s[i]=='A'||s[i]=='U' || s[i]=='E'|| s[i]=='I'||s[i]=='O'){
+
+                       char v=s[i];
+                       chs.insert(v);
+                    }
+               }
+            cout<<"count of VOWELS:"<<chs.size()<<endl;
+
+              for (int x : chs) {
+
+                cout << char(x) << " ";
+
+             }
+          }
+
+          static void WordPalindrom(){
+
+               string word="";
+
+               cin>>word;
+               bool ispalid=true;
+               int left=0;
+               int right=word.length()-1;
+               while(left<right){
+
+                      if(word[left]!=word[right]){
+
+                         ispalid=false;
+                         break;
+                      }
+                         left++;
+                         right--;
+               }
+               string s=(ispalid)?"ispalindrom!":"its not!";
+               cout<<s<<endl;
+          }
+
+          static void MakeUpper(){
+
+            string s="";
+
+            string st="";
+            cin>>s;
+
+                for(int i=0;i<=s.length()-1;i++){
+
+                     if(s[i]>='a' && s[i]<='z'){
+
+                           s[i]-=32;
+                     }
+                }
+                 cout<<s;
+          }
+
+        static void oddeven(){
+
+           int num;
+           cin>>num;
+           if(num&1){
+                  cout<<"odd";
+           }else{
+                 cout<<"even"<<endl;
+           }
+        }
+
+     static void maxof2(){
+
+          int num1;
+          int num2;
+
+          cin>>num1>>num2;
+
+          if(num1>num2){
+
+               cout<<num1<<endl;
+          }else{
+
+               cout<<num2<<endl;
+          }
+     }
+};
+
+class Math{
+
+
+};
+class Arrayprob{
+
+     
 
 };
 int main(){
 
   //  BasicIo::sum(1,20000);
    // BasicIo::loopx1();
-      BasicIo::concats();
+      BasicIo::maxof2();
 
-
-
-   
+       
 }
