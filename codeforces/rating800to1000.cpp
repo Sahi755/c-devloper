@@ -1,5 +1,7 @@
 //g++ --std=c++14 rating800to1000.cpp -o rating800to1000 && rating800to1000
 #include<iostream>
+#include<string>
+#include <sstream>
 using namespace std;
 class BasicIo{
 
@@ -105,17 +107,154 @@ class BasicIo{
           int num2;
 
           cin>>num1>>num2;
-          
+
           int k=(num1>num2)?num1:num2;
 
           cout<<"MAX:"<<k<<endl;
       }
 
+      static void loopx1(){
+
+           int n;
+           cin>>n;
+
+           for(int i=0;i<n;i++){
+
+               cout<<"I love my Aai!"<<endl;
+           }
+      }
+      static void loopx2(){
+        
+          int num;
+
+          int sum=0;
+
+          cin>>num;
+
+          for(int i=0;i<num;i++){
+
+               int val;
+               cin>>val;
+               sum+=num;
+          }
+
+          cout<<sum<<endl;
+      }
+
+      static void multiplicationTable(){
+
+              int num;
+
+              cin>>num;
+
+              for(int i=1;i<=10;i++){
+
+                    cout<<i<<" * "<<num <<"="<<i*num<<endl;
+              }
+      }
+
+      static void fact(){
+
+            long long fact=1;
+
+            long n;
+            cin>>n;
+
+           for(int i=1;i<=n;i++){
+
+                 fact*=i;
+           }
+           cout<<"factorial:"<<fact<<endl;
+      }
+
+      static void positve(){
+
+            int count=0;
+            int n;
+            cin>>n;
+
+            for(int i=0;i<n;i++){
+                   int num;         
+                   cin>>num;
+                   
+                   if(num>0){
+
+                        count++;
+                   }
+            }
+            cout<<"positve:"<<count<<endl;
+      }
+
+      static void isprimeor(){
+
+           bool isprime=true;
+           int num;
+           cin>>num;
+
+     if(num<=1){
+           isprime=false; 
+     }else{
+           for(int i=2;i*i<=num;i++){
+               if(num%i==0){
+                    isprime=false;
+                    break;
+               }
+           }
+        } 
+           if(isprime){
+                 cout<<"isprime"<<endl;
+           }else{
+                cout<<"is not prime"<<endl;
+             }
+      }
+
+      static void printWordBywordp(){
+
+            string s;
+
+            getline(cin,s);
+
+               stringstream ss(s);
+               string word;
+
+            while (ss >> word) {
+                  cout << word << endl;
+              }
+      }
+
+      static void reversDigit(){
+
+           long num;
+
+           cin>>num;
+
+           string s="";
+           while(num!=0){
+
+                  int save=num%10;
+                  s+=to_string(save);
+                  num/=10;
+           }
+           cout<<"reverse digit:"<<s<<endl;
+      }
+
+      static void concats(){
+
+           string str1;
+           string str2;
+           cin>>str1>>str2;
+           string s=str1+str2;
+           cout<<s<<endl;
+      }
+
+
 };
 int main(){
 
-    BasicIo::sum(1,20000);
-    BasicIo::maxof();
+  //  BasicIo::sum(1,20000);
+   // BasicIo::loopx1();
+      BasicIo::concats();
+
 
 
    
