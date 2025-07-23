@@ -447,7 +447,7 @@ class Arrayprob{
            int end=n-1;
 
            while(start<end){
-               
+
                  int temp=arr[start];
                  arr[start]=arr[end];
                  arr[end]=temp;
@@ -463,6 +463,97 @@ class Arrayprob{
             } 
       }
 
+      static void maxarr(int arr[],int n){
+
+            int maxi=arr[0];
+
+            for(int i=0;i<n;i++){
+
+                 if(arr[i]>maxi){
+
+                      maxi=arr[i];
+                 }
+            }
+            cout<<"max:"<<maxi<<endl;
+      }
+
+       static void minarr(int arr[],int n){
+
+            int mini=arr[0];
+
+            for(int i=0;i<n;i++){
+
+                 if(arr[i]<mini){
+
+                      mini=arr[i];
+                 }
+            }
+            cout<<"min element:"<<mini<<endl;
+      }
+
+      static void sumarr(int arr[],int n){
+
+          int sum=0;
+          for(int i=0;i<n;i++){
+
+                sum+=arr[i];
+          }
+          cout<<"sum:"<<sum<<endl;
+
+      }
+
+        static void avgarr(int arr[],int n){
+
+          int sum=0;
+          for(int i=0;i<n;i++){
+
+                sum+=arr[i];
+          }
+          cout<<"sum:"<<sum/n<<endl;
+
+      }
+
+      static void countervendodd(int arr[],int n){
+
+            int count=0;
+            
+            for(int i=0;i<n;i++){
+
+                  if(arr[i]%2==0){
+
+                       count++;
+                  }
+            }
+
+            cout<<"count of even:"<<count<<endl;
+      }
+
+       static void serachof(int arr[],int n){
+
+            int element;
+
+            bool finds=false;
+            int index=0;
+            cout<<"Enter the element:";
+            cin>>element;
+
+            for(int i=0;i<n;i++){
+
+                 if(arr[i]==element){
+
+                     index=i;
+                     finds=true;
+                     break;
+                 }
+            }
+            
+            if(finds){
+                cout<<index<<endl;
+            }else{
+                 cout<<"Not found!";
+            }
+
+       }
       static inputarr(){
 
            int n;
@@ -476,8 +567,7 @@ class Arrayprob{
 
                  cin>>arr[i];
             }
-
-            reverseArr(arr,n);
+              serachof(arr,n);
       }
 };
 class string {
