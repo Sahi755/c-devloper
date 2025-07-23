@@ -429,9 +429,17 @@ class Arrayprob{
 
             int arr[n];
 
+            cout<<"Enter  arr:";
             for(int i=0;i<n;i++){
 
-                 
+                 cin>>arr[i];
+            }
+
+
+            cout<<"print arr:";
+            for(int i=0;i<n;i++){
+
+                 cout<<arr[i]<<" ";
             }
 
       }
@@ -447,18 +455,7 @@ int main(){
   //  BasicIo::sum(1,20000);
    // BasicIo::loopx1();
 
+     Arrayprob::printArr();
 
-      Maths::convertMin(120);
-      Maths::convertMin(525600);
-      Maths::convertMin(10080);
-      Maths::convertMin(1200);
-      Maths::convertMin(999);
-
-      Maths::simpleInterst(1000,5,2);
-
-      Maths::compoundIntest(100,100,2);
-      Maths::compoundIntest(800,4.5,3);
-      Maths::compoundIntest(2500,8,2.5);
-      Maths::compoundIntest(100,100,2);
 
 }
