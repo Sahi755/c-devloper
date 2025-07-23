@@ -434,20 +434,55 @@ class Arrayprob{
 
                  cin>>arr[i];
             }
-
-
             cout<<"print arr:";
             for(int i=0;i<n;i++){
 
                  cout<<arr[i]<<" ";
             }
+      }
 
+      static void reverseArr(int arr[],int n){
+
+           int start=0;
+           int end=n-1;
+
+           while(start<end){
+               
+                 int temp=arr[start];
+                 arr[start]=arr[end];
+                 arr[end]=temp;
+
+                  start++;
+                  end--;
+           }
+
+           cout<<"print arr:";
+            for(int i=0;i<n;i++){
+
+                 cout<<arr[i]<<" ";
+            } 
+      }
+
+      static inputarr(){
+
+           int n;
+            cout<<"Enter the size:";
+            cin>>n;
+
+            int arr[n];
+
+            cout<<"Enter  arr:";
+            for(int i=0;i<n;i++){
+
+                 cin>>arr[i];
+            }
+
+            reverseArr(arr,n);
       }
 };
 class string {
 
-
-
+      
 };
 int main(){
 
@@ -455,7 +490,6 @@ int main(){
   //  BasicIo::sum(1,20000);
    // BasicIo::loopx1();
 
-     Arrayprob::printArr();
-
+     Arrayprob::inputarr();
 
 }
