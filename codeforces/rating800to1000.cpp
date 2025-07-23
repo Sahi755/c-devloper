@@ -2,6 +2,7 @@
 #include<iostream>
 #include<string>
 #include<set>
+#include<cmath>
 #include <sstream>
 using namespace std;
 class BasicIo{
@@ -338,22 +339,126 @@ class BasicIo{
                cout<<num2<<endl;
           }
      }
+
+
 };
 
-class Math{
+class Maths{
 
+   public:
+
+       static void add(int num1,int num2){
+
+           cout<<"sum:"<<num1+num2<<endl;
+       }
+
+       static void sub(int num1,int num2){
+
+            cout<<"sub:"<<abs(num1-num2)<<endl;
+       }
+
+       static void mul(int num1,int num2){
+
+             cout<<"mul:"<<num1*num2<<endl;
+       }
+
+       static void div(int num1,int num2){
+
+            int quotient=num1/num2;
+            int remainder=num1%num2;
+
+            cout<<"quotient:"<<quotient<<endl;
+            cout<<"remainder:"<<remainder<<endl;
+
+       }
+       static void calculateSquareof(int num1){
+
+             int sq=num1*num1;
+
+             cout<<"square of number:"<<sq<<endl;
+       }
+       static void cubes(int num1){
+
+           int cubeof=num1*num1*num1;
+
+           cout<<"cube:"<<cubeof<<endl;
+       }
+
+       static void calculateAvg(int num1,int num2,int num3){
+
+            int sum=num1+num2+num3;
+
+            int avg=sum/3;
+
+            cout<<"average:"<<avg<<endl;
+       }
+
+       static void convertMin(int num){
+
+             int hours=num/60;
+             int min=num%60;
+             
+             cout<<"hours:"<<hours<<endl;
+             cout<<"min:"<<min<<endl;
+       }
+
+       
+        static void simpleInterst(int P,int R,int T){
+
+           int simp=(P*R*T)/100;
+           cout<<"simple rate:"<<simp<<endl;
+     }
+
+     static void compoundIntest(double principal, double rate, double time){
+
+                   double amount = principal * pow(1 + rate / 100, time);
+                   double compoundInterest = amount - principal;
+                   cout<<"compound interst:"<<compoundInterest<<endl;
+       }
+  
 
 };
 class Arrayprob{
 
-     
+   public:
+      static void printArr(){
+
+            int n;
+            cout<<"Enter the size:";
+            cin>>n;
+
+            int arr[n];
+
+            for(int i=0;i<n;i++){
+
+                 
+            }
+
+      }
+};
+class string {
+
+
 
 };
 int main(){
 
+
   //  BasicIo::sum(1,20000);
    // BasicIo::loopx1();
-      BasicIo::maxof2();
 
-       
+
+      Maths::convertMin(120);
+      Maths::convertMin(525600);
+      Maths::convertMin(10080);
+      Maths::convertMin(1200);
+      Maths::convertMin(999);
+
+      Maths::simpleInterst(1000,5,2);
+
+      Maths::compoundIntest(100,100,2);
+      Maths::compoundIntest(800,4.5,3);
+      Maths::compoundIntest(2500,8,2.5);
+      Maths::compoundIntest(100,100,2);
+
 }
