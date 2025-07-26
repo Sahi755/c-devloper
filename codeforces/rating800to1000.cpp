@@ -3,7 +3,10 @@
 #include<string>
 #include<set>
 #include<cmath>
+#include<vector>
+#include<stack>
 #include <sstream>
+#include<map>
 using namespace std;
 class BasicIo{
 
@@ -339,7 +342,36 @@ class BasicIo{
                cout<<num2<<endl;
           }
      }
+     static void countDigits(int  num){
 
+          int count=0;
+          int sum=0;
+           while(num!=0){
+                int save=num%10;
+                sum+=save;
+                count++;
+                num/=10;
+           }
+
+           cout<<"count:"<<count<<endl;
+           cout<<"sum of digit:"<<sum;
+     }
+
+     static void sortthreedigit(){
+
+             int num1;
+             int num2;
+             int num3;
+
+             cin>>num1>>num2>>num3;
+
+             
+     }
+     
+     static void inputs(){
+
+          sortthreedigit();
+     }
 
 };
 
@@ -512,11 +544,10 @@ class Arrayprob{
           cout<<"sum:"<<sum/n<<endl;
 
       }
-
+     
       static void countervendodd(int arr[],int n){
 
             int count=0;
-            
             for(int i=0;i<n;i++){
 
                   if(arr[i]%2==0){
@@ -524,29 +555,23 @@ class Arrayprob{
                        count++;
                   }
             }
-
             cout<<"count of even:"<<count<<endl;
       }
-
        static void serachof(int arr[],int n){
 
             int element;
-
             bool finds=false;
             int index=0;
             cout<<"Enter the element:";
             cin>>element;
 
             for(int i=0;i<n;i++){
-
                  if(arr[i]==element){
-
                      index=i;
                      finds=true;
                      break;
                  }
             }
-            
             if(finds){
                 cout<<index<<endl;
             }else{
@@ -554,32 +579,229 @@ class Arrayprob{
             }
 
        }
-      static inputarr(){
 
-           int n;
+       static void rightShift(int arr[],int n){
+               int last=arr[n-1];
+               for(int i=n-1;i>0;i--){
+                    arr[i]=arr[i-1];
+               }
+              arr[0]=last;
+              for(int i=0;i<n;i++){
+                  cout<<arr[i]<<" ";
+              }
+       }
+
+       static void inputarr(){
+
+            int n;
             cout<<"Enter the size:";
             cin>>n;
-
             int arr[n];
-
             cout<<"Enter  arr:";
             for(int i=0;i<n;i++){
-
                  cin>>arr[i];
             }
-              serachof(arr,n);
+               rightShift(arr,n);
+
       }
 };
-class string {
+class String {
 
-      
+     public:
+        static void prints(string s){
+
+            cout<<"print:"<<s<<endl;
+
+        }
+
+        static void printlen(string s){
+
+             cout<<s.length()<<endl;
+        }
+
+        static void concatstring(string s,string s2){
+
+             string s3=s+s2;
+             cout<<s3<<endl;
+        }
+
+        static void copys(string s1){
+
+            string s=" ";
+            s=s1;
+            cout<<"copy string:"<<s<<endl;
+        }
+
+         static void Uppercases(string s){
+
+              for(int i=0;i<s.length();i++){
+                    if(s[i]>='a' && s[i]<='z'){
+                           s[i]-=32;
+                    }
+              }
+              cout<<"upper case:"<<s<<endl;
+         }
+
+
+      static void Lowercase(string s){
+
+            for(int i=0;i<s.length();i++){
+
+                 if(s[i]>='A' && s[i]<='Z'){
+                       s[i]+=32;
+                 }
+            }
+            cout<<"upper case:"<<s<<endl;
+         }
+
+         static void counttype(string s){
+
+               int countVoe=0;
+               int countCon=0;
+
+               for(int i=0;i<s.length();i++){
+                   if(s[i]=='a'||s[i]=='u' || s[i]=='e'|| s[i]=='i'||s[i]=='o' || s[i]=='A'||s[i]=='U' || s[i]=='E'|| s[i]=='I'||s[i]=='O'){
+
+                        countVoe+=1;
+                   }else{
+                         countCon+=1;
+                   }
+               }
+               cout<<"Count VOWELS:"<< countVoe<<endl;
+               cout<<"count Conosont:"<<countCon<<endl;
+         }
+
+      static void palindrom(string s){
+
+             bool ispali=true;
+             int left=0;
+             int right=s.length()-1;
+
+             while(left<right){
+
+                   if(s[left]!=s[right]){
+
+                        ispali=false;
+                        break;
+                   }
+                   left++;
+                   right--;
+               }
+             string s2=(ispali)?"ispalindrom!":"is not palindrom!";
+             cout<<s2<<endl;
+          }
+
+     static void findfreq(string s){
+
+          map<char,int>freq;
+
+          for(auto i:s){
+
+              freq[i]++;
+          }
+
+          for(auto i:freq){
+
+                cout<<i.first<<":"<<i.second<<endl;
+          }
+     }
+
+     static void  reverseString(string s){
+
+            int start=0;
+            int end=s.length()-1;
+
+            while(start<=end){
+
+               char temp=s[start];
+               s[start]=s[end];
+               s[end]=temp;
+
+               start++;
+               end--;
+            }
+            cout<<"reverse string:"<<s<<endl;
+     }
+
+     static void substring(string s){
+
+          
+     }
+
+     static void Hyfon(string s){
+
+                 for(int i=0;i<s.length();i++){
+
+                        if(s[i]>=' ' && s[i]<=' '){
+
+                             s[i]='-';
+
+                        }
+                 }
+               cout<<s<<endl;
+          }
+
+          static void BalancedParentheses(string s){
+
+               stack<int>st;
+
+               bool isbalance=false;
+               
+               for(auto i:s){
+
+                    if(i=='('){
+
+                          st.push(i);
+
+                    }else if(i==')'){
+
+                          if(st.empty()){
+                              cout << "Input: \"" << str << "\" -> false" << endl;
+                               return;
+                          }
+
+                          st.pop();
+                    }
+               }
+
+               if(st.empty()){
+                    
+                      cout<<"true"<<endl;
+               }else{
+                      cout<<"false"<<endl;
+               }
+        }
+     
+
+        static void input(){
+             string s1;
+             getline(cin,s1);
+             BalancedParentheses(s1);
+        }
 };
+class  RecursionBacktracking{
+       public:
+          static void  rec1Ton(int current, int n){
+
+               if(current>n){
+                    return;
+               }    
+               cout<<current<<" ";
+
+               rec1Ton(current+1,n);
+          }
+
+
+};
+
 int main(){
 
 
-  //  BasicIo::sum(1,20000);
-   // BasicIo::loopx1();
+    //BasicIo::inputs();
 
-     Arrayprob::inputarr();
+    String::input();
 
+   //  Arrayprob::inputarr();
+
+     //RecursionBacktracking::inputRecursion();
 }

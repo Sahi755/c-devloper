@@ -213,7 +213,6 @@ class Vector{
 
                cout<<vs.back()-1<<endl;
         }
-
         
 };
 int main(){
