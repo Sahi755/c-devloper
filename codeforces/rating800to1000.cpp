@@ -447,8 +447,61 @@ class Maths{
                    double compoundInterest = amount - principal;
                    cout<<"compound interst:"<<compoundInterest<<endl;
        }
-  
 
+       static void binartodecimal(){
+
+              vector<int>vs;
+               int num;
+
+              cin>>num;
+
+              while(num!=0){
+
+                   int save=num%10;
+                   vs.push_back(save);
+                   num/=10;
+              }
+
+              int ans2=0;
+              for(int i=0;i<vs.size();i++){
+
+                ans2+=vs[i]*pow(2,i);
+
+                }
+              cout<<ans2<<endl;
+       }
+
+       static void  Collatzsequence(int n){
+
+            int count=0;
+
+             while(n!=1){
+
+                   if(n%2==0){
+                      n=n/2;
+                      cout<<"->";
+                      cout<<n<<" ";
+
+                   }else if(n%2==1){
+
+                       n=3*n+1;
+                       cout<<"->";
+                       cout<<n<<" ";
+                   }
+
+                   count++;
+             }
+             cout<<"ans:"<<count;
+       }
+
+        static void mathinput(){
+
+          int n;
+          cin>>n;
+
+          Collatzsequence(n);
+
+        }
 };
 class Arrayprob{
 
@@ -583,27 +636,31 @@ class Arrayprob{
        static void rightShift(int arr[],int n){
                int last=arr[n-1];
                for(int i=n-1;i>0;i--){
+
                     arr[i]=arr[i-1];
                }
+
               arr[0]=last;
               for(int i=0;i<n;i++){
+              
                   cout<<arr[i]<<" ";
               }
-       }
+          }
+
+
 
        static void inputarr(){
 
-            int n;
-            cout<<"Enter the size:";
-            cin>>n;
-            int arr[n];
-            cout<<"Enter  arr:";
-            for(int i=0;i<n;i++){
-                 cin>>arr[i];
-            }
-               rightShift(arr,n);
+           vector<string>vs;
+           int n;
+           cin>>n;
+           for(int i=0;i<5;i++){
 
+                 cin>>vs[i];
+           }
+     
       }
+
 };
 class String {
 
@@ -641,7 +698,6 @@ class String {
               }
               cout<<"upper case:"<<s<<endl;
          }
-
 
       static void Lowercase(string s){
 
@@ -744,39 +800,63 @@ class String {
           static void BalancedParentheses(string s){
 
                stack<int>st;
-
-               bool isbalance=false;
                
                for(auto i:s){
 
                     if(i=='('){
-
                           st.push(i);
-
                     }else if(i==')'){
 
                           if(st.empty()){
-                              cout << "Input: \"" << str << "\" -> false" << endl;
+                              cout << "Input: \"" << s << "\" -> false" << endl;
                                return;
                           }
-
                           st.pop();
                     }
                }
-
                if(st.empty()){
                     
-                      cout<<"true"<<endl;
+                      cout << "Input: \"" << s << "\" -> true" << endl;
                }else{
-                      cout<<"false"<<endl;
+                       cout << "Input: \"" << s << "\" -> false" << endl;
                }
         }
-     
 
+          static void toggalCase(string s){
+
+                string result="";
+                 for(auto i:s){
+
+                     if(i>='a' && i<='z'){
+                          result+=toupper(i);
+                     }else{
+                           result+=tolower(i);
+                     }
+              }      
+              cout<<result<<endl;
+          }
+
+        static void extraction(string s){
+
+             vector<char>v;
+
+             for(auto i:s){
+
+                 if(i>='0' && i<='9'){
+
+                      v.push_back(i);
+                 }
+             }
+
+             string ans(v.begin(),v.end());
+
+             cout<<ans<<endl;
+
+        }
         static void input(){
              string s1;
-             getline(cin,s1);
-             BalancedParentheses(s1);
+            getline(cin,s1);
+            extraction(s1);
         }
 };
 class  RecursionBacktracking{
@@ -790,18 +870,17 @@ class  RecursionBacktracking{
 
                rec1Ton(current+1,n);
           }
-
-
 };
 
 int main(){
 
-
     //BasicIo::inputs();
 
-    String::input();
+    //String::input();
 
-   //  Arrayprob::inputarr();
+     //Arrayprob::inputarr();
+
+     Maths::mathinput();
 
      //RecursionBacktracking::inputRecursion();
 }
