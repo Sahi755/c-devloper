@@ -1,8 +1,11 @@
 //g++ --std=c++14 rating800to1000.cpp -o rating800to1000 && rating800to1000
 #include<iostream>
+#include<algorithm>
 #include<string>
 #include<set>
+#include<climits>
 #include<cmath>
+#include <unordered_set>
 #include<vector>
 #include<stack>
 #include <sstream>
@@ -363,10 +366,9 @@ class BasicIo{
              int num2;
              int num3;
 
-             cin>>num1>>num2>>num3;
-
-             
+             cin>>num1>>num2>>num3;             
      }
+
      
      static void inputs(){
 
@@ -491,15 +493,48 @@ class Maths{
 
                    count++;
              }
+
              cout<<"ans:"<<count;
        }
 
+     static long long sumOfMultiples(int k, int n) {
+    
+            int p = (n - 1) / k;
+    
+             return (long long)k * p * (p + 1) / 2;
+        }
+
+   static bool isAlmostPrime(int n){
+     
+          // Check for divisibility by 2
+
+     set<int> primeDivisors;
+
+    // Check for divisibility by 2
+    if (n % 2 == 0) {
+        primeDivisors.insert(2);
+        while (n % 2 == 0) n /= 2;
+    }
+
+    // Check for odd divisors
+    for (int i = 3; i * i <= n; i += 2) {
+        if (n % i == 0) {
+            primeDivisors.insert(i);
+            while (n % i == 0) n /= i;
+        }
+    }
+
+    // If remaining n is a prime > sqrt(original n)
+    if (n > 1) {
+        primeDivisors.insert(n);
+    }
+    return primeDivisors.size() == 2;
+    
+   }
+
+   
         static void mathinput(){
 
-          int n;
-          cin>>n;
-
-          Collatzsequence(n);
 
         }
 };
@@ -561,7 +596,6 @@ class Arrayprob{
             }
             cout<<"max:"<<maxi<<endl;
       }
-
        static void minarr(int arr[],int n){
 
             int mini=arr[0];
@@ -647,20 +681,37 @@ class Arrayprob{
               }
           }
 
+ static void findsecondmax(vector<int> arr){
+ 
+   int max1 = INT_MIN;
+   int max2 = INT_MIN;
 
+    for (int num : arr) {
 
+        if (num > max1) {
+            max2 = max1;
+            max1 = num;
+        } else if (num > max2 && num < max1) {
+            max2 = num;
+        }
+    }
+    cout<<(max2 == INT_MIN) ? -1 : max2; // return -1 if no second max
+
+}   
+
+   
+ 
        static void inputarr(){
-
-           vector<string>vs;
+           vector<int>vs;
            int n;
            cin>>n;
-           for(int i=0;i<5;i++){
-
-                 cin>>vs[i];
+           for(int i=0;i<n;i++){
+                 int num;
+                 cin>>num;
+                 vs.push_back(num);
            }
-     
+              findsecondmax(vs);
       }
-
 };
 class String {
 
@@ -779,11 +830,6 @@ class String {
             cout<<"reverse string:"<<s<<endl;
      }
 
-     static void substring(string s){
-
-          
-     }
-
      static void Hyfon(string s){
 
                  for(int i=0;i<s.length();i++){
@@ -847,16 +893,98 @@ class String {
                       v.push_back(i);
                  }
              }
-
              string ans(v.begin(),v.end());
-
              cout<<ans<<endl;
-
         }
-        static void input(){
-             string s1;
-            getline(cin,s1);
-            extraction(s1);
+
+static bool passwordcheker(const string &s){
+
+      if (s.length() < 8)
+          return false;
+
+    bool hasUpper = false;
+    bool hasLower = false;
+    bool hasDigit = false;
+    bool hasSpecial = false;
+    string specialChars = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+
+    for (char ch : s) {
+        if (isupper(ch)) hasUpper = true;
+        else if (islower(ch)) hasLower = true;
+        else if (isdigit(ch)) hasDigit = true;
+        else if (specialChars.find(ch) != string::npos) hasSpecial = true;
+    }
+
+    return hasUpper && hasLower && hasDigit && hasSpecial;
+}
+
+
+static void flipbits(string s){
+
+        string result="";
+
+        for(int i=0;i<s.length();i++){
+                if(s[i]=='0'){
+                     result+='1';
+                }else{
+                     result+='0';
+        }
+     }
+
+     cout<<result<<endl;
+}
+
+static void dupicates(string s){
+
+    std::unordered_set<char> seen;
+    std::string result;
+
+    for (char ch : s) {
+        if (seen.count(ch)) {
+            result += '_';
+        } else {
+            seen.insert(ch);
+            result += ch;
+        }
+    }
+    cout<<result;
+}
+
+
+static void ntime(int D,int L,int R){
+
+       vector<int>vs;
+
+          for(int i=L;i<=R;i++){
+
+                vs.push_back(i);
+          }
+          string result=" ";
+
+         int count=0;
+          
+          char ds=D+'0';
+
+          for(int i=0;i<vs.size();i++){
+          
+                result+=to_string(vs[i]);
+          }
+          for(auto i:result){
+
+                if(i==ds){
+
+                    count+=1;
+                }
+        }
+
+      cout<<count<<endl;
+}
+          
+     static void input(){
+             int D,L,R;
+             cin>>D>>L>>R;
+             ntime(D,L,R);
+
         }
 };
 class  RecursionBacktracking{
@@ -876,11 +1004,11 @@ int main(){
 
     //BasicIo::inputs();
 
-    //String::input();
+  String::input();
 
-     //Arrayprob::inputarr();
+ //   Arrayprob::inputarr();
 
-     Maths::mathinput();
+ //Maths::mathinput();
 
      //RecursionBacktracking::inputRecursion();
 }
