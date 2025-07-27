@@ -966,7 +966,7 @@ static void ntime(int D,int L,int R){
           char ds=D+'0';
 
           for(int i=0;i<vs.size();i++){
-          
+
                 result+=to_string(vs[i]);
           }
           for(auto i:result){
@@ -984,7 +984,7 @@ static void ntime(int D,int L,int R){
              int D,L,R;
              cin>>D>>L>>R;
              ntime(D,L,R);
-
+             
         }
 };
 class  RecursionBacktracking{
