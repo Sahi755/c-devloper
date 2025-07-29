@@ -697,21 +697,67 @@ class Arrayprob{
     }
     cout<<(max2 == INT_MIN) ? -1 : max2; // return -1 if no second max
 
-}   
+}
 
-   
- 
-       static void inputarr(){
-           vector<int>vs;
-           int n;
-           cin>>n;
-           for(int i=0;i<n;i++){
-                 int num;
-                 cin>>num;
-                 vs.push_back(num);
-           }
-              findsecondmax(vs);
+    static printDigonal(int arr[50][50],int n1,int n2){
+
+          set<int>digonals;
+
+          for(int i=0;i<n1;i++){
+
+               for(int j=0;j<n2;j++){
+
+                   digonals.insert(arr[i][i]);
+               }
+          }
+          cout<<"digonals:";
+          for(auto i:digonals){
+
+               cout<<i<<" ";
+          }
+    }
+
+    static printAntiDigonal(int arr[50][50],int n1,int n2){
+     
+
+          set<int>digonals;
+
+          for(int i=0;i<n1;i++){
+
+               for(int j=0;j<n2;j++){
+
+                   digonals.insert(arr[i][n1-1-i]);
+               }
+          }
+
+          cout<<" Anti digonals:";
+          for(auto i:digonals){
+
+               cout<<i<<" ";
+          }
+    }
+static void inputarr(){
+         
+          int arr[50][50];
+          int n1;
+          int n2;
+          cin>>n1>>n2;
+
+          arr[n1][n2];
+
+          for(int i=0;i<n1;i++){
+
+               for(int j=0;j<n2;j++){
+
+                    cin>>arr[j][i];
+               }
+          }
+
+           printAntiDigonal(arr,n1,n2);
+           printDigonal(arr,n1,n2);
       }
+
+
 };
 class String {
 
@@ -950,11 +996,9 @@ static void dupicates(string s){
     cout<<result;
 }
 
-
 static void ntime(int D,int L,int R){
 
        vector<int>vs;
-
           for(int i=L;i<=R;i++){
 
                 vs.push_back(i);
@@ -970,22 +1014,79 @@ static void ntime(int D,int L,int R){
                 result+=to_string(vs[i]);
           }
           for(auto i:result){
-
                 if(i==ds){
 
                     count+=1;
                 }
         }
-
       cout<<count<<endl;
 }
-          
-     static void input(){
-             int D,L,R;
-             cin>>D>>L>>R;
-             ntime(D,L,R);
-             
+         
+static void encrypt(string s){
+
+     map<char,int>make;
+
+     for(auto i:s){
+
+          make[i]++;
+     }
+        string result="";
+        for(auto i:make){
+
+               result+=i.first;
+               result+=to_string(i.second);
         }
+
+        cout<<result<<endl;
+}
+
+static void orderAlpha(string s){
+
+       sort(s.begin(),s.end());
+       
+       cout<<"str:"<<s<<endl;
+
+       cout<<s<<endl;
+ }
+
+static string nonrepeatingchar(string s){
+
+    map<char, int> freq;
+
+    // Count frequency of each character
+    for (char ch : s) {
+        freq[ch]++;
+    }
+    // Find the first character with frequency 1
+    for (char ch : s) {
+        if (freq[ch] == 1) {
+            return string(1, ch); // Convert char to string
+        }
+    }
+    return "None";
+} 
+
+static string leftCircularShift(string s, int k) {
+    int n = s.length();
+    if (n == 0) return s;
+    k = k % n; // Effective shift
+    return s.substr(k) + s.substr(0, k);
+}
+static string rightCircularshift(string s,int k){
+
+         int n=s.length();
+         if(n==0) return s;
+         k=k%n;
+ return s.substr(n-k)+s.substr(0,n-k);
+
+}
+ static void input(){
+               string s;
+               int pos;
+               cin>>s>>pos;
+               cout<<rightCircularshift(s,pos);
+ }
+
 };
 class  RecursionBacktracking{
        public:
@@ -1004,9 +1105,9 @@ int main(){
 
     //BasicIo::inputs();
 
-  String::input();
+  //String::input();
 
- //   Arrayprob::inputarr();
+ Arrayprob::inputarr();
 
  //Maths::mathinput();
 
