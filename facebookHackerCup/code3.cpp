@@ -1,6 +1,5 @@
-
-#ifndef HEADER_NAME_H
-#define HEADER_NAME_H
+//g++ --std=c++14 code2.cpp -o code2 && code2:wd
+//g++ --std=c++14 code3.cpp -o code3 && code3
 
 #include <algorithm>
 #include <array>
@@ -21,6 +20,7 @@
 #include <vector>
 #include <fstream>
 #include<utility>
+
 #define MOD1  1000000007
 #define MOD2  1000000009 
 #define Maxlenstr  10000000018
@@ -31,7 +31,7 @@
 using namespace std;
 class Comparators{
 
-	public:static  bool cmp(pair<int,int>a,pair<int,int>b){
+public:static  bool maxpair(pair<int,int>a,pair<int,int>b){
 
 			   return a.second<b.second;
 		  }
@@ -42,7 +42,8 @@ class Algorithms{
        
 };
 
-class NumberTeoryAlgo{
+class NumberTeoryAl{
+  
 
 	public:
         static int gcd(int a, int b) {
@@ -57,29 +58,17 @@ class NumberTeoryAlgo{
 class Solution:public Comparators, Algorithms, NumberTeoryAlgo{
 
 public:
-  	 static void solve(int m){   
-      
-            cout<<m;
+  	 static  void solve(){
+		   
     }
-
-     static void input(){
-
-        int num1;
-
-        cin>>num1;
-
-        solve(num1);
-     }
+    
  };
- 
-#endif // HEADER_NAME_H
 int main(){
 
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-
+    
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-    
-    Solution::input();
+	 
+
 }
+

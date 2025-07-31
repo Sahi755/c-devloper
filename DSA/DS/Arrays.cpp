@@ -1,3 +1,4 @@
+ //g++ -std=c++17 Contest35.cpp  -O2
 #include<iostream>
 #include<vector>
 #include<algorithm>
@@ -106,6 +107,10 @@ class Arrays{
               }
          }
 
+     static missingNumber(int arr[],int size){
+
+           
+     }
        static void inputArr(){
           int size;
           int arr[10];
