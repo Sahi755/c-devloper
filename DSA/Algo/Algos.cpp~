@@ -1,0 +1,86 @@
+#include <vector>
+#include <cstdint>
+#include <iostream>
+
+// Irreducible AES polynomial: x^8 + x^4 + x^3 + x + 1 = 0x11B
+const uint8_t GF_MOD = 0x1B;
+
+// Multiply two elements in GF(256)
+uint8_t gf_mul(uint8_t a, uint8_t b) {
+    uint8_t res = 0;
+    while (b) {
+        if (b & 1) res ^= a;
+        bool hi = a & 0x80;
+        a <<= 1;
+        if (hi) a ^= GF_MOD;
+        b >>= 1;
+    }
+    return res;
+}
+
+// GF(256) exponentiation
+uint8_t gf_pow(uint8_t a, int power) {
+    uint8_t result = 1;
+    for (int i = 0; i < power; ++i) {
+        result = gf_mul(result, a);
+    }
+    return result;
+}
+
+// GF(256) inverse using exponentiation (a^254 mod 255 in GF(256))
+uint8_t gf_inv(uint8_t a) {
+    return gf_pow(a, 254);
+}
+
+// Evaluate polynomial at point x
+uint8_t poly_eval(const std::vector<uint8_t>& poly, uint8_t x) {
+    uint8_t result = 0;
+    for (size_t i = 0; i < poly.size(); ++i) {
+        result = gf_mul(result, x) ^ poly[i];
+    }
+    return result;
+}
+
+// Derivative of a polynomial in GF(2^8)
+std::vector<uint8_t> poly_derivative(const std::vector<uint8_t>& poly) {
+    std::vector<uint8_t> deriv;
+    for (size_t i = 1; i < poly.size(); ++i) {
+        if (i % 2 == 1) deriv.push_back(poly[i]);  // only odd powers survive
+    }
+    return deriv;
+}
+
+// Forney’s Algorithm
+std::vector<uint8_t> forney_algorithm(
+    const std::vector<uint8_t>& omega,
+    const std::vector<uint8_t>& lambda,
+    const std::vector<uint8_t>& error_locations
+) {
+    std::vector<uint8_t> error_values;
+    std::vector<uint8_t> lambda_prime = poly_derivative(lambda);
+
+    for (uint8_t Xi : error_locations) {
+        uint8_t Xi_inv = gf_inv(Xi);
+        uint8_t numerator = poly_eval(omega, Xi_inv);
+        uint8_t denominator = poly_eval(lambda_prime, Xi_inv);
+        uint8_t error_value = gf_mul(numerator, gf_inv(denominator));
+        error_values.push_back(error_value); // Negation unnecessary in GF(2^m)
+    }
+
+    return error_values;
+}
+int main() {
+    // Example dummy values
+    std::vector<uint8_t> omega = {0x56, 0x2B, 0x11};      // Ω(x)
+    std::vector<uint8_t> lambda = {0x01, 0x83, 0x32};      // Λ(x)
+    std::vector<uint8_t> error_locations = {0x03, 0x07};   // X₁, X₂
+
+    std::vector<uint8_t> error_vals = forney_algorithm(omega, lambda, error_locations);
+
+    for (uint8_t val : error_vals) {
+        std::cout << "Error magnitude: 0x" <<val << std::endl;
+    }
+
+    return 0;
+}
+
