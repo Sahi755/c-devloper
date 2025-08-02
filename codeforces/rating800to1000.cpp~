@@ -892,8 +892,11 @@ class String {
           }
 
           static void BalancedParentheses(string s){
+
                stack<int>st;
+               
                for(auto i:s){
+
                     if(i=='('){
                           st.push(i);
                     }else if(i==')'){
@@ -906,7 +909,7 @@ class String {
                     }
                }
                if(st.empty()){
-             
+                    
                       cout << "Input: \"" << s << "\" -> true" << endl;
                }else{
                        cout << "Input: \"" << s << "\" -> false" << endl;

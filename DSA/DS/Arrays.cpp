@@ -37,7 +37,7 @@ class Arrays{
                 left++;
          }
          if(allsame==false){
-               cout<<arr[1];
+               cout<<arr[arr.size()-2];
          }else{
                cout<<"No second min all are same!";
          }
