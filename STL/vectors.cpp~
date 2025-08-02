@@ -179,7 +179,6 @@ class Vectors{
 		  cout<<i<<" ";
 	  }
  }
-
 static void inputvector(){
 
 		  int size;
@@ -191,7 +190,7 @@ static void inputvector(){
 			  for(int i=0;i<size;i++){
 				   int num;
 				   cin>>num;
-				   vs.push_back(num);
+				   vs.emplace_back(num);
 			  }			      
 
 			    perfixsum(vs);
@@ -199,8 +198,62 @@ static void inputvector(){
 		  }
       }
 };
+
+class Methodtraing{
+
+    public:
+		 static void display(vector<int>&vs){
+
+			 vector<int>::iterator it;
+			 for(it=vs.begin();it!=vs.end();it++){
+				  cout<<*it<<" ";
+			 }
+	      }
+		    static void  reversevector(vector<int>vs){
+          
+			 for(auto it=vs.rbegin();it!=vs.rend();it++){
+				 cout<<*it<<" ";
+			 }
+		 }
+		       static void sums(vector<int>vs){
+
+			  auto sum=0;
+			  vector<int>::iterator its;
+			  for(auto it=vs.cbegin();it!=vs.cend();it++){
+				   sum+=*it;
+			  }
+			  cout<<sum<<endl;
+		 }
+
+	  	 static void rev(vector<int>vs){
+			 for(auto it=vs.crbegin();it!=vs.crend();it++){
+				  cout<<*it<<" ";
+			 }
+		 }
+
+		 static void mul(vector<int>vs){
+
+
+	    	 }
+
+		  static void inputvector(){
+		  int size;
+		  int T;
+		  vector<int>vs;
+		  cin>>T;
+		  while(T--){
+			  cin>>size;
+			  for(int i=0;i<size;i++){
+				   int num;
+				   cin>>num;
+				   vs.emplace_back(num);
+			  }			      
+			    rev(vs);
+			    vs.clear();
+		  }
+      }
+};
 int main(){
 
-	 
-	Vectors::inputvector();
+	Methodtraing::inputvector();
 }
