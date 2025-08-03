@@ -180,6 +180,22 @@ static void sortQueue(queue<int>& q) {
     }
 }
 
+static void freqency(queue<int>q){
+
+     map<int,int>mp;
+
+	 while(!q.empty()){
+
+		 auto k=q.front();
+		 q.pop();
+		 mp[k]++;		 
+	 }
+	 for(auto i:mp){
+
+		 cout<<i.first<<":"<<i.second<<endl;
+	 }      	  
+}
+
 	   static void inputqueue(){
 
 		   int size;
@@ -196,9 +212,7 @@ static void sortQueue(queue<int>& q) {
 					q.emplace(num);
 			     }
 			        
-				    sortQueue(q);
-					printqueue(q);
-
+				    freqency(q);
 		      }	   
 };
 int main(){
