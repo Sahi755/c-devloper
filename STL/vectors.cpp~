@@ -233,7 +233,6 @@ class Methodtraing{
 
 		 static void mul(vector<int>vs){
 
-
 	    	 }
 
 		  static void inputvector(){
