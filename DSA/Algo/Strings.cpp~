@@ -73,15 +73,7 @@ static bool Anagrams(string s1, string s2) {
 		  }
 
 		  cout<<longstring<<endl; 
-     }
-
-
-      static reversestring(string s){
-
-
-      }	 
-
-
+     }	
 		static void inputString(){
 
 			int T;

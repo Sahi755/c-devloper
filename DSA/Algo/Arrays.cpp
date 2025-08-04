@@ -91,31 +91,70 @@ static void moveAllzeros(int arr[],int size){
                cout<<arr[i]<<" ";
           }
 }
-static void RotateRight(int arr[],int size){
+static void Rotateright(int arr[],int size){
 
+	 vector<int>vs;
+
+	 for(int i=0;i<size;i++){
+
+		 int s=arr[i];
+		 vs.push_back(s);
+	 }
+
+	 int n=vs.size();
 	 int k;
 	 cout<<"Enter the k:";
 	 cin>>k;
 
-	 last=arr[size-1];
+	 rotate(vs.begin(),vs.begin()+(n-k%n),vs.end());
+
+	 for(auto i:vs){
+
+		 cout<<i<<" ";
+	 }
+}
+static void RotateLeft(int arr[],int size){
+  
+	int k; 
+	 vector<int>vs;
 
 	 for(int i=0;i<size;i++){
 
-		 arr[i]=arr[i-k];
-    }
+		 int s=arr[i];
+		 vs.push_back(s);
+	 }
+	cout<<"Enter the size:";
+	cin>>k;
+	rotate(vs.begin(),vs.begin()+k,vs.end());
 
-	arr[i]=last;
+	for(auto i:vs){
 
-	for(int i=0;i<size;i++){
-
-		cout<<arr[i]<<" ";
+		cout<<i<<" ";
 	}
 
 }
+static void fixArray(int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        // Place arr[i] at the correct index if not already in place
+        while (arr[i] != -1 && arr[i] != i) {
+            // If arr[i] == arr[arr[i]], break to avoid infinite loop
+            if (arr[i] == arr[arr[i]]) break;
 
-static void missingNumber(int arr[],int size){
+            // Swap arr[i] and arr[arr[i]]
+            swap(arr[i], arr[arr[i]]);
+        }
+    }
 
+    // Set remaining elements to -1 if they are not at correct index
+    for (int i = 0; i < n; i++) {
+        if (arr[i] != i)
+            arr[i] = -1;
+    }
+}
 
+static void sumofpair(int arr[],int size){
+
+	 
 }
 static void inputArray(){
 
@@ -129,7 +168,7 @@ static void inputArray(){
 					  
 					  cin>>arr[i];
 				  }
-                    moveAllzeros(arr,size);
+                       sumofpair(arr,size);
 				 }
 	    	}
 };
