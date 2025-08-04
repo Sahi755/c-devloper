@@ -112,11 +112,6 @@ static void RotateRight(int arr[],int size){
 	}
 
 }
-
-static void missingNumber(int arr[],int size){
-
-
-}
 static void inputArray(){
 
              int T;
