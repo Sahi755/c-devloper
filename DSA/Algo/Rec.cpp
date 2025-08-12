@@ -1,0 +1,98 @@
+#include<iostream>
+#include <string>
+#include<vector>
+using namespace std;
+class Rec{
+
+	public:
+	  static int fact(int n){
+
+		  if(n==0) return 1; 
+		  return n*fact(n-1);
+	  }
+
+	  static int  Numbers(int n){
+
+		    if(n==0) return 1;
+		    cout<<n<<" ";
+			Numbers(n-1);
+	  }
+
+	 static long power(long long base,long long exp){
+
+		  if(exp==0)
+			  return 1;
+		 
+		  long long  halfpower=power(base,exp/2);
+
+		  if(exp%2==0)
+			  return halfpower * halfpower;
+		  else
+			 return base * halfpower * halfpower;
+	 }
+
+	static int  subsets(string s){
+
+		   if(s.length()==0) 
+			    return 1;
+
+		   cout<<s<<" ";
+		   subsets(s.substr(0,s.length()-1));
+	}
+
+	static void generateSubsets(string s,string current,int index){
+
+		  if(index==s.length()){
+
+			   cout<<"\" "<<current<<"\""<<"  ";
+			   return;
+		  }
+            // Exclude the current character
+            generateSubsets(s,current,index+1);
+
+			// Include the current character
+		    generateSubsets(s,current+s[index],index+1);
+	}
+
+	static bool isPalindrome(string s,int start,int end){
+
+
+		  if(start>=end)
+			 return true;
+
+		  if(s[start]!=s[end])
+             return false;
+
+		  return  isPalindrome(s,start+1,end-1);
+      }
+
+	 static long long nfab(int n){
+
+		  if(n==1)
+			 return 1;
+     else if(n==0)
+		     return 0;
+
+		  return nfab(n-1)+nfab(n-2);
+	 }
+
+	static int GCD(int a,int b){
+
+        if(a==0||b==0)
+			return 0;
+
+
+	   return GCD(a,b%2);
+	}
+
+  };
+int main(){
+
+	  int n;
+
+	  cin>>n;
+
+	  cout<<Rec::(n)<<endl;
+
+
+}

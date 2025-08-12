@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+class Control{
+
+	public:
+		static void pos(int num){
+
+	         if(num==0){
+                 cout<<"zeros";
+			 }
+			 if(pos>0){
+				  cout<<"positive";
+			 }else{
+				  cout<<"negative";
+			 }
+
+		}
+		static void input(){
+
+            int num;
+			cin>>num;
+			pos(num);
+		}
+};
+int main(){
+
+	Control::input();
+
+}

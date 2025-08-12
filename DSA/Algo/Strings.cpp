@@ -1,5 +1,6 @@
 #include<iostream>
 #include<bits\stdc++.h>
+#include<string.h>
 using namespace std;
 class String{
 
@@ -50,7 +51,6 @@ static bool Anagrams(string s1, string s2) {
 				   }
 				   left++;
 			  }
-
 			 if(Anagram){
 				 cout<<"its Anagram!\n";
 			 }else{
@@ -71,40 +71,100 @@ static bool Anagrams(string s1, string s2) {
 		  for(int i=0;i<vs.size();i++){
 			  longstring+=vs[i];
 		  }
-
 		  cout<<longstring<<endl; 
      }
 
 
-      static reversestring(string s){
+      static string  reversestring(const string s){
+    
+		    string result;
+
+			result.reserve(s.size());
+
+			for(int i=s.length()-1;i>=0;i--){
+
+				result+=s[i];
+			}
+	   
+	      return result;
+       }
+
+     static void ispalndrom(string s){
+
+		  string originalString=s;
+		  if( reversestring(s)==originalString){
+			   cout<<"its palindrom";
+		  }else{
+			   cout<<"its not palindrom:";
+		  }
+	 }
+
+    static void stios(string s){
+
+		  int k=stoi(s);
+
+		  cout<<"string into int:"<<k<<endl;
+
+	}
+
+static void adjacentDuplicates(string s){
+        
+  }
+
+static void KMP(string n1,string n2){
 
 
-      }	 
+
+ }
+
+static void  Wildcard(string s1,string s2){
 
 
-		static void inputString(){
+}
+
+static void isomorphic(string s1,string s2){
+
+
+}
+
+static void allanagrams(vector<string>input){
+
+
+}
+
+static void numberofsubstrings(string s){
+
+
+}
+
+static void spaceswith(string s){
+
+
+}
+
+static void  minimumparentheses(string s){
+
+
+}
+
+static void  compression(string s){
+
+
+}
+static void inputString(){
 
 			int T;
 			cin>>T;
 			while(T--){
 
-				int size;
-
-				cin>>size;
-				vector<string>vs;
-
-		        for(int i=0;i<size;i++){
-
-					 string s;
-					 cin>>s;
-					 vs.push_back(s);
-				}
-
-			   	commonprefix(vs);
+			  string s1,s2;
+			  cin>>s1>>s2;
+			  comp(s1,s2);
 			}
 		}
 };
 int main(){
 
 	String::inputString();
+
 }

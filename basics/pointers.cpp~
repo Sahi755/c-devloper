@@ -54,7 +54,6 @@ class Introduction{
 
 
 };
-
 int main(){
 
 	Introduction::input();
