@@ -156,7 +156,7 @@ class Datatype{
 		  
 	}
 
-	static void explicit(){
+	static void explicits(){
 
      double pi = 3.14159;
 
