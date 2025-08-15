@@ -36,7 +36,19 @@ class Algorithms{
 				  if(!present[i]) return i;
 			  }
 			  return n+1;
-		} 
+		}
+
+	     static void poweers(unsigned int n){
+
+			  unsigned int ans=1;
+
+			  while((ans<<1)<=n){
+
+				  ans<<=1;
+			  }
+			  cout<<"laraget power:"<<ans<<endl;
+
+		 }
 };
 
 class NumberTeoryAl{
@@ -57,6 +69,7 @@ class Solution:public Comparators, Algorithms,NumberTeoryAl{
 	public:
 	        static void  solve(vector<int>&arr){
 
+				  
 		 		    	
          	}
 
