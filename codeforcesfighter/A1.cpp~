@@ -95,7 +95,6 @@ class A1{
 				  ans<<=1;
 			  }
 			  cout<<"laraget power:"<<ans<<endl;
-
 		 }
 
 		 static void mods(int n,int k,int mod){
@@ -208,6 +207,9 @@ static void countNpair(int n){
 
 static void NpowThree(int n){
 
+	  // is time exceed algorith o(n)+o(n);
+
+
 	   bool ispw=true;
 
 	   vector<int>powers;
@@ -231,7 +233,6 @@ static void NpowThree(int n){
 	  }else{
 		  cout<<"no";
 	  }
-
 }
 static string isPowerof3(int N) {
 
