@@ -1,6 +1,203 @@
 #include<iostream>
+#include<bits\stdc++.h>
 using namespace std;
-int main(){
+class Arrayof{
 
+	  public:
+		  static void revserArr(int arr[],int size){
+
+		       int left=0;
+			   int right=size-1;
+
+			   while(left<right){
+
+				    int temp=arr[right];
+					arr[right]=arr[left];
+					arr[left]=temp;
+
+			        left++;
+			        right--;
+			   }
+		  }
+
+		  static void findmaxinArr(int arr[],int size){
+
+			   int max=arr[0];
+              
+			   for(int i=0;i<size;i++){
+				   if(arr[i]>max){
+					   max=arr[i];
+				   }
+			   }
+			  cout<<"MAX:"<<max<<endl;
+		  }
+
+		  static void findmin(int arr[],int size){
+
+			    int min=arr[0];
+				for(int i=0;i<size;i++){
+
+					if(arr[i]<min){
+						min=arr[i];
+					}
+				}
+
+			   cout<<"min:"<<min<<endl;
+		  }
+
+		  static void NonZeros(int arr[],int size){
+
+			  int nonzero=0;
+			  for(int i=0;i<size;i++){
+                   if(arr[i]!=0){
+					    arr[nonzero]=arr[i];
+						nonzero++;
+				   }
+			  }
+			   while(nonzero<size){
+				    arr[nonzero]=0;
+					nonzero++;
+			   }
+
+			  for(int i=0;i<size;i++){
+				  cout<<arr[i]<<" ";
+			  }
+		  }
+
+static void rotateLeft(vector<int>& arr, int k) {
+
+       int n = arr.size();
+
+        k = k % n; 
+				
+       vector<int> result(n);
+     for (int i = 0; i < n; i++) {
+        int newIndex = (i - k + n) % n;  // Left rotation formula
+        result[newIndex] = arr[i];
+    }
+
+    arr = result;
+}
+
+static void rotateRight(vector<int>& arr, int k) {
+
+    int n = arr.size();
+    k = k % n; // handle k > n
+    vector<int> result(n);
+    for (int i = 0; i < n; i++) {
+        int newIndex = (i + k) % n;  // Right rotation formula //
+        result[newIndex] = arr[i];
+    }
+    arr = result;
+}
+
+static void palindrom(vector<int>&vs){
+
+	  int left=0;
+	  int right=vs.size()-1;
+	  bool ispali=true;
+
+	  while(left<right){
+		   if(vs[left]!=vs[right]){
+			    ispali=false;
+		   }
+		   left++;
+		   right--;
+	  }
+
+	  if(ispali){
+		   cout<<"is palindrom!";
+	  }else{
+		   cout<<"is not palindrom!";
+	  }
 
 }
+
+static void findfreq(vector<int>&vs){
+
+	  map<int,int>frq;
+
+	  for(auto i:vs){
+
+		  frq[i]++;
+	  }
+
+	  cout<<"count:"<<endl;
+	  for(auto i:frq){
+
+		  cout<<i.first<<":"<<i.second<<endl;
+	  } 
+}
+
+static int findMissingBySum(vector<int>& arr, int n) {
+    long long expectedSum = 1LL * n * (n + 1) / 2; // sum of 1..n
+    long long actualSum = 0;
+    for (int x : arr) actualSum += x;
+
+	cout<< actualSum;
+
+    return (int)(expectedSum - actualSum);
+}
+
+static void duplicateIn(vector<int>&vs){
+
+	 map<int,int>mp;
+
+     for(auto i:vs){
+		 mp[i]++;
+	 }	
+
+	string val;
+	for(auto i:vs){
+	     if(mp[i]>1){
+			  val+=to_string(i);
+		 }
+	}
+
+	cout<<val[0]<<endl;
+}
+
+static void SubArr(vector<int>&vs,int k){
+
+	  vector<int>vs2;
+
+	  for(int i=0;i<vs.size();i++){
+
+		   for(int j=0;i<vs.size();j++){
+
+			    if(vs[i]+vs[j+1]==k){
+
+					 vs2.push_back(vs[j]);
+				}
+		   }
+	  }
+
+	  for(int i=0;i<vs.size();i++){
+		  cout<<vs2[i]<<" ";
+	  } 
+
+}
+static void input(){
+
+			   int size;
+			   vector<int>arr;
+
+			   int n;
+			   cin>>size>>n;
+			   for(int i=0;i<size;i++){
+
+				     int k;
+					 cin>>k;
+					 arr.push_back(k);
+			   }
+
+			   SubArr(arr,n);
+
+	 	}
+};
+int main(){
+
+	Arrayof::input();
+
+}
+

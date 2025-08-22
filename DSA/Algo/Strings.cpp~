@@ -4,167 +4,155 @@
 using namespace std;
 class String{
 
-	 private:
-	    static string caseof(string s){
-        
-			string clean="";
-			for(auto i:s){
-				 if(i!=' '){
-					 clean+=tolower(i);
-				 }
-			}
-			return clean;
-		}
-
 	public:
+	  bool isPalindrome(string& s) {
+        // code here
+          
+       int left=0;
+       int right=s.length()-1;
+        
+          while(left<right){
+              
+               if(s[left]!=s[right]){
+                   
+                   return false;
+                   break;
+               }
+               
+               left++;
+          right--;
+          }
+          
+        return true;
+    }
 
-static bool Anagrams(string s1, string s2) {
-         if (s1.length() != s2.length()) return false;
+	static void  countVowels(string s){
 
-          vector<int> count(256, 0); // Assuming ASCII
-         for (int i = 0; i < s1.length(); i++) {
-             count[tolower(s1[i])]++;
-             count[tolower(s2[i])]--;
-            }
+		int count=0;
 
-             for (int i = 0; i < 256; i++) {
-        if (count[i] != 0) return false;
-         }
-           return true;
+		for(int i=0;i<s.length();i++){
 
-         }
+			 if((s[i]=='a')||(s[i]=='o')||(s[i]=='e')||(s[i]=='u')||(s[i]=='i')){
 
-		static void Anagram(string s1,string s2){
-			  
-			  string str1=caseof(s1);
-			  string str2=caseof(s2);
-
-              sort(str1.begin(),str1.end());
-			  sort(str2.begin(),str2.end());
-
-			  bool Anagram=true;
-			  int left=0;
-			  int right=s1.length();
-			  while(left<right){
-				   if(s1[left]!=s2[left] && s1.length()!=s2.length()){
-                           Anagram=false;
-				   }
-				   left++;
-			  }
-			 if(Anagram){
-				 cout<<"its Anagram!\n";
-			 }else{
-				 cout<<"its not anagram!\n";
+				   count++;
 			 }
-
 		}
 
-	static void commonprefix(vector<string>&vs){
-
-		//  string str(vs.begin(),vs.end());
-
-		  map<char,int>mp;
-
-	      string longstring="";
-		  string result=" ";
-
-		  for(int i=0;i<vs.size();i++){
-			  longstring+=vs[i];
-		  }
-		  cout<<longstring<<endl; 
-     }
-
-
-      static string  reversestring(const string s){
-    
-		    string result;
-
-			result.reserve(s.size());
-
-			for(int i=s.length()-1;i>=0;i--){
-
-				result+=s[i];
-			}
-	   
-	      return result;
-       }
-
-     static void ispalndrom(string s){
-
-		  string originalString=s;
-		  if( reversestring(s)==originalString){
-			   cout<<"its palindrom";
-		  }else{
-			   cout<<"its not palindrom:";
-		  }
-	 }
-
-    static void stios(string s){
-
-		  int k=stoi(s);
-
-		  cout<<"string into int:"<<k<<endl;
-
+		cout<<count<<endl;
 	}
 
-static void adjacentDuplicates(string s){
+	 static string toggleCase(string &s) {
+        // code here
+         
+         string result="";
+        for(int i=0;i<s.length();i++){
+            
+            if(s[i]>='a'&& s[i]<='z'){
+                
+                  result+=toupper(s[i]);
+            }else{
+
+                  result+=tolower(s[i]);
+            }
+        } 
+       return result;
+    }
+
+	static  int lengthString(string &s) {
+        // Your code here
         
-  }
+        int count=0;
+        string str3="";
+        
+        for(auto i:s){
+            
+            str3+=i;
+            count++;
+        }
+        
+        return count;
+    }
 
-static void KMP(string n1,string n2){
+	static void convertUpper(string s){
+
+           string result="";
+		 for(int i=0;i<s.length();i++){
+
+			   if(s[i]>='a' && s[i]<='z'){
+
+				     result+=toupper(s[i]);
+			   }
+		 }
+		 cout<<"to upper case:"<<result<<endl;
+	}
+
+	static void convertLower(string s){
+
+		  string result="";
+
+		  for(int i=0;i<s.length();i++){
+
+			    if(s[i]>='A' && s[i]<='Z'){
+
+					 result+=tolower(s[i]);
+				}
+		  }
+
+		  	 cout<<"to upper case:"<<result<<endl;
+	}
 
 
+	static void countWord(string s){
 
- }
+		int count =0;
+		bool isword=false;
 
-static void  Wildcard(string s1,string s2){
+	      for(auto i:s){
 
+			  if(isspace(i)){
 
-}
+				   isword=false;
+			  }else{
 
-static void isomorphic(string s1,string s2){
+				  if(!isword)
+					 count++;
+					 isword=true;
+			  }
+		  }
+		  cout<<"count:"<<count<<endl;
+	}
 
+   static string modifystr(string s) {
+        // code here.
 
-}
+        //remove space 		 
+        s.erase(remove(s.begin(),s.end(),' '),s.end());
 
-static void allanagrams(vector<string>input){
+        return s;
+     
+    }
 
+    static void replacechar(string s){
 
-}
-
-static void numberofsubstrings(string s){
-
-
-}
-
-static void spaceswith(string s){
-
-
-}
-
-static void  minimumparentheses(string s){
-
-
-}
-
-static void  compression(string s){
-
-
-}
-static void inputString(){
-
-			int T;
-			cin>>T;
-			while(T--){
-
-			  string s1,s2;
-			  cin>>s1>>s2;
-			  comp(s1,s2);
-			}
+		  
 		}
+
+    static void freqency(string s){
+
+		 map<char,int>mp;
+
+		 for(char i:s){
+
+			  mp[i]++;
+		 }
+
+		 for(auto i:mp){
+              cout<<i.first<<":"<<i.second<<endl;
+		 }
+	}
 };
 int main(){
 
-	String::inputString();
+	  String::freqency("SAHIL ");
 
 }

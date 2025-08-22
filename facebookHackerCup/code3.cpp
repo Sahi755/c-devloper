@@ -2,6 +2,9 @@
 //g++ --std=c++14 code3.cpp -o code3 && code3
 
 #include<bits\stdc++.h>
+#include<algorithm>
+#include<string>
+#include<set>
 #define MOD1  1000000007
 #define MOD2  1000000009 
 #define Maxlenstr  10000000018
@@ -12,12 +15,10 @@
 #define ll long long
 using namespace std;
 class Comparators{
-
 public:static  bool maxpair(pair<int,int>a,pair<int,int>b){
 
 			   return a.second<b.second;
 		  }
-
 };
 class Algorithms{
 
@@ -39,20 +40,16 @@ class Algorithms{
 		}
 
 	     static void poweers(unsigned int n){
-
 			  unsigned int ans=1;
 
 			  while((ans<<1)<=n){
-
 				  ans<<=1;
 			  }
 			  cout<<"laraget power:"<<ans<<endl;
-
 		 }
 };
 
-class NumberTeoryAl{
-  
+class NewAlgo{
 
 	public:
         static int gcd(int a, int b) {
@@ -63,34 +60,130 @@ class NumberTeoryAl{
          static int lcm(int a, int b) {
            return (a * b) / gcd(a, b);
       }
+
+	   static int oddcount(int x){
+	         
+	           int count=0;
+	           for(int i=0;i<=x;i++){
+	               
+	                if(i%2==1) count++;
+	           }
+	        return count;
+	    }
+	    
+	  static int evencount(int x){
+	        
+	         int count=0;
+	         for(int i=0;i<=x;i++){
+	             if(i%2==0)count++;
+	         }
+	         return count;
+	    }
+
+	  static void equalstringsum(string s){
+
+		    vector<unsigned int>vs;
+
+				unsigned int sum1=0;
+				unsigned int sum2=0;
+
+				 for(int i=0;i<s.length();i++){
+					   
+					   int sum=s[i]-'0';
+					   vs.push_back(sum);  	         	   
+				 }
+				 int n=vs.size()/2;
+                 int count=0;
+				 for(int i=0;i<n;i++){
+
+					   sum1+=vs[i]; 
+					   count++;
+				 }
+				 for(int i=count;i<6;i++){
+					   sum2+=vs[i];
+				 }
+				 if(sum1==sum2){
+					 cout<<"YES\n";
+				 }else{
+					 cout<<"NO\n";
+				 }
+	  }
+
+	   static void Cointransform(ll x){
+ 
+			   long long ans=1;
+			   while(x>3){
+				     x/=4;
+					 ans*=2;
+				}
+			   cout<<ans<<endl;
+ 		 }
+
+	    static bool perpectsqure(int n){
+
+			  if(n<0) return false;
+
+			  if(n==0) return true;
+
+			  int root=sqrt(n);
+
+			  return root*root==n;
+
+		}
+
 };
-class Solution:public Comparators, Algorithms,NumberTeoryAl{
+class Solution:public Comparators, Algorithms,NewAlgo{
 
 	public:
-	        static void  solve(vector<int>&arr){
+	     static void solve(string s){
+      
 
-				  
-		 		    	
-         	}
+			 int count=0;
 
-		static void inputArray(){	
-		     int T;
+			 for(int i=0;i<s.length();i++){
+
+				  if(s[i]=='1'){
+
+					   count++;
+				  }
+			 }
+
+			 cout<<count<<endl;
+      }
+
+		static void input(){	
+		
+			    int T;
+				cin>>T;
+				while(T--){
+
+					int size;
+
+					cin>>size;
+					vector<int>arr(size);
+					for(int i=0;i<size;i++)cin>>arr[i];			
+					 
+   				}
+	       }
+
+		static void singleInputs(){
+
+             int T;
 			 cin>>T;
-		     while(T--){
-				  int size;
-				  int k;
-				  cin>>size;
-				  vector<int> newarr(size);
 
-				for(int i=0;i<size;i++){
-					 cin>>newarr[i];
-				 }
-				 solve(newarr);		
-			} 
-		}
+			 while(T--){
+
+			     string s;
+				 cin>>s;
+
+				solve(s);
+
+			 }
+
+    	}
 };
 int main(){
 
-	Solution::inputArray();
+	Solution::singleInputs();
  }
 

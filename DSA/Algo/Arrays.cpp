@@ -37,9 +37,11 @@ static void duplicate(int arr[],int size){
 		  int t=arr[i];
 		  vs.push_back(t);
 	  }
+
 	  for(auto i:vs){
 		  mp[i]++;
 	  }
+	  
 	  string s;
 	  for(auto i:vs){
 		  if(mp[i]>1){
