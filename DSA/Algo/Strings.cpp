@@ -2,157 +2,24 @@
 #include<bits\stdc++.h>
 #include<string.h>
 using namespace std;
+
 class String{
 
-	public:
-	  bool isPalindrome(string& s) {
-        // code here
-          
-       int left=0;
-       int right=s.length()-1;
-        
-          while(left<right){
-              
-               if(s[left]!=s[right]){
-                   
-                   return false;
-                   break;
-               }
-               
-               left++;
-          right--;
-          }
-          
-        return true;
-    }
+	 public:
+		 void countVowels(string s){
 
-	static void  countVowels(string s){
+			 int count=0;
 
-		int count=0;
-
-		for(int i=0;i<s.length();i++){
-
-			 if((s[i]=='a')||(s[i]=='o')||(s[i]=='e')||(s[i]=='u')||(s[i]=='i')){
-
-				   count++;
-			 }
-		}
-
-		cout<<count<<endl;
-	}
-
-	 static string toggleCase(string &s) {
-        // code here
-         
-         string result="";
-        for(int i=0;i<s.length();i++){
-            
-            if(s[i]>='a'&& s[i]<='z'){
-                
-                  result+=toupper(s[i]);
-            }else{
-
-                  result+=tolower(s[i]);
-            }
-        } 
-       return result;
-    }
-
-	static  int lengthString(string &s) {
-        // Your code here
-        
-        int count=0;
-        string str3="";
-        
-        for(auto i:s){
-            
-            str3+=i;
-            count++;
-        }
-        
-        return count;
-    }
-
-	static void convertUpper(string s){
-
-           string result="";
-		 for(int i=0;i<s.length();i++){
-
-			   if(s[i]>='a' && s[i]<='z'){
-
-				     result+=toupper(s[i]);
-			   }
-		 }
-		 cout<<"to upper case:"<<result<<endl;
-	}
-
-	static void convertLower(string s){
-
-		  string result="";
-
-		  for(int i=0;i<s.length();i++){
-
-			    if(s[i]>='A' && s[i]<='Z'){
-
-					 result+=tolower(s[i]);
-				}
-		  }
-
-		  	 cout<<"to upper case:"<<result<<endl;
-	}
-
-
-	static void countWord(string s){
-
-		int count =0;
-		bool isword=false;
-
-	      for(auto i:s){
-
-			  if(isspace(i)){
-
-				   isword=false;
-			  }else{
-
-				  if(!isword)
-					 count++;
-					 isword=true;
-			  }
-		  }
-		  cout<<"count:"<<count<<endl;
-	}
-
-   static string modifystr(string s) {
-        // code here.
-
-        //remove space 		 
-        s.erase(remove(s.begin(),s.end(),' '),s.end());
-
-        return s;
-     
-    }
-
-    static void replacechar(string s){
-
-		  
-		}
-
-    static void freqency(string s){
-
-		 map<char,int>mp;
-
-		 for(char i:s){
-
-			  mp[i]++;
+			  
 		 }
 
-		 for(auto i:mp){
-              cout<<i.first<<":"<<i.second<<endl;
-		 }
-	}
 };
 int main(){
 
-	  String::freqency("SAHIL");
+	  string s1;
+	  string s2;
+
+	  cin>>s1>>s2;
+	  String::equals(s1,s2);
 
 }
