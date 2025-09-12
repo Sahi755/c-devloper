@@ -90,8 +90,7 @@ class Solution:public NewAlgo{
 	   
        static void solve(int n){
 			    
-      
-	  	   
+             
 	}
 
 	static void input(){	
@@ -103,6 +102,9 @@ class Solution:public NewAlgo{
 					vector<int>arr(size);
 					for(int i=0;i<size;i++)cin>>arr[i];			 
    				}
+
+				solve(arr);
+
 	       }
 
 		static void singleInputs(){

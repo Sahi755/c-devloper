@@ -90,7 +90,8 @@ class Solution:public NewAlgo{
 	   
        static void solve(int n){
 			    
-       	 
+      
+	  	   
 	}
 
 	static void input(){	

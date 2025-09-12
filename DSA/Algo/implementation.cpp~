@@ -1,6 +1,4 @@
 #include<iostream>
-#include<algorithm>
-#include<vector>
 #include<string>
 using namespace std;
 class Group1{
@@ -16,7 +14,6 @@ class Group1{
 						  count+=1;
 					}
 			   }
-
 			  cout<<count<<endl; 
 		  }
 
@@ -78,27 +75,49 @@ class  Group2{
 	  public:
 		  static void Rotates(vector<int>&vs){
 
-			    Rotate(vs.begin(),vs.end()-1,vs.end());
+			    rotate(vs.begin(),vs.end()-1,vs.end());
 
 				for(auto i:vs){
 
 					cout<<i<<" ";
 				}
+
 		  }
+
+		  static void max_elements(vector<int>& vs) {
+
+			  int maxi = vs[0];
+
+			  for (int i = 0; i < vs.size(); i++) {
+
+				  if (vs[i] > maxi) {
+
+					  maxi = vs[i];
+				  }
+			  }
+			  cout << maxi << endl;
+		}
+
+		static void secondLarget(vector<int>&vs){
+
+			  
+		}
+
+
 };
 int main(){
 
-	  vector<int>vs;
-	  int size;
-	  cin>>size;
+	   vector<int>vs;
+ int size;
+ cin>>size;
 
-	   for(int i=0;i<size;i++){
+  for(int i=0;i<size;i++){
 
-		   int ans;
-		   cin>>ans;
-		   vs.push_back(ans);
-	   }
+   int ans;
+   cin>>ans;
+   vs.push_back(ans);
+  }
 
-	   Group2::Rotates(vs);
+  Group2::max_elements(vs);
 
 }

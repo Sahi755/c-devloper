@@ -1,6 +1,7 @@
 #include<iostream>
 #include<algorithm>
 #include<vector>
+#include<set>
 #include<string>
 using namespace std;
 class Group1{
@@ -100,12 +101,114 @@ class  Group2{
 			  cout << maxi << endl;
 		}
 
+		 static void secondLarge(vector<int>&vs){
+
+			   
+		 }
+
+		 static void reverseArr(vector<int>&vs){
+ 
+			     int right=vs.size()-1;
+				 int left=0;
+
+				 int temp;
+				 while(left<right){
+
+					 temp=vs[left];
+					 vs[left]=vs[right];
+					 vs[right]=temp;
+
+					 right--;
+					 left++;
+				 }
+
+	   for(auto i:vs){
+
+		   cout<<i<<" ";
+	    }
+   }
+
+	static void duplicateCount(vector<int>&vs,int num){
+
+		   int count=0;
+
+		   for(int i=0;i<vs.size();i++){
+
+			    if(num==vs[i]){
+
+					 count++;
+				}
+		   }
+		 cout<<count<<endl;
+	}
+
+	static void AllUniq(vector<int>&vs){
+
+           set<int>uniq;
+
+           for(auto i:vs){
+
+			    uniq.insert(i);
+		   }		 
+		  vs.clear();
+		  for(auto i:uniq){
+
+			   cout<<i<<" ";
+		  } 
+	}
+
+	static void ArraySorted(vector<int>&vs){
+
+		  bool isSorted=true;
+          
+		 int left=0;
+		 int  right=vs.size()-1;
+
+		  while(left<right){
+			   if(vs[left]>vs[left+1]){
+				      isSorted=false;
+					  break;
+			   }
+
+			   left++;
+		  }
+
+		 if(isSorted){
+			 cout<<"its sorted!";
+		 }else{
+			 cout<<" its not sorted!";
+		 }
+	}
+
+	static void merage(vector<int>&vs,vector<int>&vs2){
+
+		int count=vs2.size();
+
+		int i=0;
+
+		while(i<count){
+		
+			  int num=vs2[i];
+			  vs.push_back(num);
+			  i+=1;
+		}
+
+		for(auto i:vs){
+			 cout<<i<<" ";
+		}
+	 }
+};
+class Group3{
+
 
 };
 int main(){
 
 	  vector<int>vs;
+	  vector<int>vs2;
+
 	  int size;
+	  int q;
 	  cin>>size;
 
 	   for(int i=0;i<size;i++){
@@ -115,6 +218,13 @@ int main(){
 		   vs.push_back(ans);
 	   }
 
-	   Group2::max_elements(vs);
+	   for(int i=0;i<size;i++){
+
+		   int ans;
+		   cin>>ans;
+		   vs2.push_back(ans);
+	   }
+
+	   Group2::merage(vs,vs2);
 
 }
