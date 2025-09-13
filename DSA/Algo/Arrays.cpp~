@@ -232,7 +232,6 @@ static void maximumproduct(vector<signed int>&nums){
 
 static void minproduct(vector<int>&vs){
 
-
 	 int n=vs.size();
 	 int  maxProd=vs[0];
 	 int  minProd=vs[0];

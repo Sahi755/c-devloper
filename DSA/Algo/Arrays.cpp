@@ -99,7 +99,7 @@ class Array{
 			 }
 
 			 auto lastOcur=max_element(indexLast.begin(),indexLast.end());
-			 cout<<"firstOcur:"<<*lastOcur<<endl;
+			 cout<<"last ocurance:"<<*lastOcur<<endl;
 			 indexLast.clear();
 
 	  }
@@ -231,7 +231,6 @@ static void maximumproduct(vector<signed int>&nums){
 }
 
 static void minproduct(vector<int>&vs){
-
 
 	 int n=vs.size();
 	 int  maxProd=vs[0];
