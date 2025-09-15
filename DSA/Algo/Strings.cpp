@@ -145,7 +145,6 @@ class String{
 	 }
 
 	 static void firstOcurance(string str,string sub){
-
 		  
 		    size_t pos = str.find(sub);
 

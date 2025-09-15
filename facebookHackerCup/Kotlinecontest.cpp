@@ -15,17 +15,30 @@ int main(){
 
 	  while(T--){
 
-		   int m;
+		   
            int count1=0;
-		   int count2=0;
-         
+
+		   int m;
 		   cin>>size;
 
 		   for(int i=0;i<size;i++){
+
 
 			    cin>>m;
 				vs.push_back(m);
 		   }
 
-      }
+		    auto ans=max_element(vs.begin(),vs.end());
+
+		    for(int i=0;i<=vs.size();i++){
+
+				if(*ans!=vs[i]){
+
+					 count1+=1;
+					 break;
+				}
+			}
+
+		cout<<count1+1<<endl;
+	  }
 }

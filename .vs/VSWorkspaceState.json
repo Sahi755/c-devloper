@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\objectOriented",
+    "\\projectMERN\\.git",
+    "\\projectMERN\\.git\\objects"
   ],
-  "SelectedNode": "\\DSA",
+  "SelectedNode": "\\codeforcesfighter",
   "PreviewInSolutionExplorer": false
 }

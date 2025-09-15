@@ -1,6 +1,7 @@
 #include<iostream>
 #include<algorithm>
 #include<vector>
+#include<vector>
 #include<set>
 #include<string>
 using namespace std;
@@ -200,31 +201,201 @@ class  Group2{
 };
 class Group3{
 
+	 public:
+		  static void prob1(int n){
+			   for(int i=1;i<=n;i++){
+				   cout<<i<<" ";
+			   }
+		  }
+
+		  static void prob2(int n){
+
+			   cout<<"Even numbers:";
+			   for(int i=0;i<=n;i++){
+				   if(i%2==0){
+					   cout<<i<<" ";
+				   }
+			   }
+		  }
+
+		  static void prob3(int n){
+			   cout<<"odd numbers:";
+			   for(int i=0;i<=n;i++){
+				    if(i%2==1){
+						cout<<i<<" ";
+					}
+			   }
+		  }
+
+		  static void prob4(long n){
+
+			   int sum=0;
+			   for(int i=0;i<=n;i++){ 
+				    sum+=i;
+			   }
+			   cout<<"sum:"<<sum<<endl;
+		  }
+		  static void prob5(long  n){
+
+			   int product=1;
+
+
+			   for(int i=1;i<=n;i++){
+                    product*=i;
+			   }
+			  cout<<"product and factorial also:"<<product<<endl;
+		  }
+
+		  static void prob6(long n){
+
+			    string s=" ";
+				long save;
+
+				while(n!=0){
+
+					  save=n%10;
+					  s+=to_string(save);
+					  n/=10;
+				}
+			    cout<<"reverse:"<<s<<endl;
+		  }
+
+		  static void prob7(int n){
+
+			bool isprime=true;
+
+			if(n<=1){
+				  isprime=false;
+			}else{
+			   for(int i=2;i*i<=n;i++){
+                      if(n%i==0){
+						  isprime=false;
+						  break;
+					  }
+			   }
+	  	  }
+			  if(isprime){
+				  cout<<"is prime!"<<endl;
+			  }else{
+				  cout<<"is not prime"<<endl;
+			  }
+		  }
+
+	static bool prob8(int n){
+
+		  if(n<=1) return false;
+			   for(int i=2;i*i<=n;i++){
+				    if(n%i==0){
+					  return false;
+					}
+			   }
+			  return true;
+      	}
+
+	 static void prob9(int n){
+
+		   cout<<sizeof(long long );
+
+		   unsigned long long fact=1;
+		    for(int i=1;i<=n;i++){
+				  fact*=i;
+			}
+		   cout<<"factorial of "<<n<<"is:"<<fact<<endl;
+	 }
+
+	 static void prob10(int n){
+
+	   vector<int>fab(n+1);
+
+		    fab[1]=1;
+			fab[0]=0;
+
+		    for(int i=2;i<=n;i++){
+
+				 fab[i]=fab[i-1]+fab[i-2];
+			}
+		  for(auto i:fab){
+			   cout<<i<<" ";
+		  }
+	 }
+
+	 static void prob11(int n){
+
+		   int sumEven=0;
+		   for(int i=0;i<=n;i++){
+			     if(i%2==0){
+					 sumEven+=i;
+				 }
+		   }
+		   cout<<sumEven<<endl;
+	 }
+
+	 static void prob12(int n){
+
+		   int num=n;
+		   long save;
+		   string rever="";
+
+		   while(num!=0){
+			    save=num%10;
+				rever+=to_string(save);
+				num/=10;
+		   }
+		   string ori=to_string(n);
+		   if(ori==rever){
+			   cout<<"is palindrom";
+		   }else{
+			   cout<<"is not palindrom!";
+		   }
+
+		 }
+
+	   static void prob13(int n){
+
+		    for(int i=0;i<=n;i++){
+				 if(i%2==0){
+					  continue;
+				 }else{
+					  cout<<i<<endl;
+				 }
+			}
+	   }
+	   static void prob14(int n){
+
+		    vector<int>digi;
+			 int numsave;
+			 while(n!=0){
+				   numsave=n%10;
+				   digi.push_back(numsave);
+				   n/=10;
+			 }
+            auto maxi=max_element(digi.begin(),digi.end());
+			cout<<"max:"<<*maxi<<endl;
+	   }
+
+	   static void prob15(int n){
+
+		     vector<int>digi;
+			 int numsave;
+			 while(n!=0){
+				   numsave=n%10;
+				   digi.push_back(numsave);
+				   n/=10;
+			 }
+            auto maxi=min_element(digi.begin(),digi.end());
+			cout<<"min:"<<*maxi<<endl;
+	   }
+
+	    static void inputloop(){
+
+			  int n;
+			  cin>>n;
+			  prob15(n);
+		  }
 
 };
 int main(){
 
-	  vector<int>vs;
-	  vector<int>vs2;
-
-	  int size;
-	  int q;
-	  cin>>size;
-
-	   for(int i=0;i<size;i++){
-
-		   int ans;
-		   cin>>ans;
-		   vs.push_back(ans);
-	   }
-
-	   for(int i=0;i<size;i++){
-
-		   int ans;
-		   cin>>ans;
-		   vs2.push_back(ans);
-	   }
-
-	   Group2::merage(vs,vs2);
+	 Group3::inputloop();
 
 }

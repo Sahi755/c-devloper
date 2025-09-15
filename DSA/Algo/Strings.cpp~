@@ -144,7 +144,7 @@ class String{
 		 cout<<s<<endl;
 	 }
 
-	 static void firstOcurance(string s1,string s2){
+	 static void firstOcurance(string str,string sub){
 
 		  
 		    size_t pos = str.find(sub);
